@@ -1,13 +1,12 @@
 Tasks:
 
-  mmd2tex:    compile all .mmd files down to .tex files
-  tex2pdf:    compile the main .tex file down to a .pdf (see below)
-  openreader: opens the generated .pdf file in a reader
-  clean:      cleans up temporary files
-  *clean:     cleans up after the specific task *
-  default:    [mmd2tex, tex2pdf, tex2pdfclean, openreader]
+  - mmd2tex:    compile all .mmd files down to .tex files
+  - tex2pdf:    compile the main .tex file down to a .pdf (see below)
+  - openreader: opens the generated .pdf file in a reader
+  - clean:      cleans up temporary files
+  - default:    [mmd2tex, tex2pdf, tex2pdfclean, openreader]
 
 Variables:
 
-  FileName: The name of the main TeX file;
-  PDFReader: The path to a copy of SumatraPDF;
+  - FileName: The name of the main TeX file;
+  - PDFReader: The path to a copy of SumatraPDF;
