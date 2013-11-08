@@ -2,7 +2,7 @@
 task :default => [:mmd2tex, :tex2pdf, :tex2pdfclean]
 
 # Basic settings.
-FileName  = 'main.tex'
+FileName  = 'main.mmd'
 PDFReader = 'evince'
 
 # Compile main LaTeX file to a PDF.
@@ -29,7 +29,7 @@ task :mmd2texclean do
   clean(MMD2TeX.cleanup)
 end
 
-# Open Acrobat Reader with PDF.
+# Open Acrobat Reader with PDF. not working 
 task :openreader do
   %x{start "" "#{PDFReader}" -reuse-instance -restrict "#{FileName.ext('pdf')}"} if File.exist?(FileName.ext('pdf'))
 end
@@ -49,7 +49,7 @@ module TeX2PDF
   def self.compile(filename)
     puts "pdfLaTeX #{filename}"
     puts %x{pdflatex #{filename}}
-    puts %x{bibtex   #{filename}}
+    puts %x{bibtex   #{filename.chomp(File.extname(filename))}}
     puts %x{pdflatex #{filename}}
     puts %x{pdflatex #{filename}}
   end

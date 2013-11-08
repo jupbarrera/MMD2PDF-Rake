@@ -1,10 +1,10 @@
-Modified original to my needs and fixed a little bug.
-
 Tasks:
 
   - mmd2tex:    compile all .mmd files down to .tex files
-  - tex2pdf:    compile the main .tex file down to a .pdf (see below)
-  - openreader: opens the generated .pdf file in a reader
+  - tex2pdf:    compile the main .tex file down to a .pdf  using pdflatex it
+    could work with others
+  - openreader: opens the generated .pdf file in a reader  not working properly
+    with evince
   - clean:      cleans up temporary files
   - default:    [mmd2tex, tex2pdf, tex2pdfclean]
 
