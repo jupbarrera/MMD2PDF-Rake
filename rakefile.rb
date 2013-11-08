@@ -1,13 +1,15 @@
 # Set the default task.
-task :default => [:mmd2tex, :tex2pdf, :tex2pdfclean, :openreader]
+task :default => [:mmd2tex, :tex2pdf, :tex2pdfclean]
 
 # Basic settings.
 FileName  = 'main.tex'
-PDFReader = ''
+PDFReader = 'evince'
 
 # Compile main LaTeX file to a PDF.
 task :tex2pdf do
-  TeX2PDF.compile(FileName)
+  FileList['*.tex'].each do |filename|
+    TeX2PDF.compile(filename)
+  end
 end
 
 # Clean up all temporary pdfLaTeX files.
@@ -68,7 +70,7 @@ module MMD2TeX
   end
   
   # List all TeX files that have an associated MMD file.
-  def self.clean
+  def self.cleanup
     FileList['*.mmd'].ext('tex')
   end
 end
